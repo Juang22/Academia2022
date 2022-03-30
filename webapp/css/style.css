@@ -1,0 +1,67 @@
+/* Enter your custom styles here */
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.myAllTable{
+    background-color: #b8bec2 ;
+    
+}
+
+
+/* .myRowTable  {
+    background-color: black ;
+    backdrop-filter: blur(2px);
+} */
+
+
+.myRowTable:hover{
+    background-color: rgb(220, 228, 243);
+
+}
+
+/* --Form---*/
+
+
+.sapUiFormResGrid.sapUiFormBackgrTranslucent>div {
+    /* background-color: rgba(255,255,255,0); */
+    background-color: white;
+    
+}
+
+.sapUiForm .sapUiFormTitle {
+    border-width: 1px;
+    border-color: #050A30;
+    font-family: "72","72full",Arial,Helvetica,sans-serif;
+    height: 2.75rem;
+    line-height: 2.75rem;
+    background-color: white;
+    color: white;
+}
+.sapMDialog header .sapMBarRight, .sapMDialog header .sapMBarPH {
+    
+    background-color: #7EC8E3;
+}
+
+
+.classMesa {
+    color: green;
+}
+
+
+#application-academia2022lucc3mesas-display-component---Mesas--page-cont {
+    background-color: #689AB8;
+}
+
+#_table0-listUl {
+    background-color: #050A30;
+}
+
+.customBackground{
+    /* background-image: url("https://isfd166-bue.infd.edu.ar/sitio/wp-content/uploads/2018/07/escuelanormal760.jpg");
+    background-size: cover; */
+    /* backdrop-filter: sepia(90%); */
+   
+   box-sizing: border-box;
+}

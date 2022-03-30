@@ -1,0 +1,111 @@
+<mvc:View xmlns:simple="sap.gantt.simple"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:Button="sap.m.Button"
+    xmlns:Table="sap.m.Table"
+    xmlns="sap.m"
+    xmlns:fb="sap.ui.comp.filterbar" controllerName="academia2022.zlucc3mesas.controller.Mesas" displayBlock="true"
+    xmlns:m="sap.suite.ui.microchart">
+
+    <App id="app">
+        <pages>
+            <Page id="page" class="customBackground">
+
+                <headerContent >
+                    <Button type="Ghost" press="onPressCreate" ariaLabelledBy="editButtonLabel" text="Crear Mesa" />
+                    <Button type="Ghost" press="onPressViewStudent" ariaLabelledBy="editButtonLabel" text="Lista Estudiantes"/>
+                    
+                </headerContent>
+            
+                <content>
+
+                    <fb:FilterBar showRestoreButton="false" showClearButton="false" showFilterConfiguration="false" showGoOnFB="false">
+                        <fb:filterItems>
+                            <fb:FilterItem name="idFilterCarrera" label="Carrera">
+                                <fb:control>
+                                    <Input id="idDate" liveChange="onfiltrarTabla" />
+                                </fb:control>
+                            </fb:FilterItem>
+                        </fb:filterItems>
+                        <fb:filterItems>
+                            <fb:FilterItem name="idtypeMesa" label="Tipo de Llamado" id="idtypeMesa">
+                                <fb:control>
+                                    <Select id="filterLLamado" items="{path : '/LlamadoSet'}" selectedKey="{CodLLamado}" forceSelection="false" change="onfiltrarTabla" enabled="true">
+                                        <core:ListItem key="{CodLLamado}" text="{DescLLamado}"/>
+
+                                    </Select>
+                                </fb:control>
+
+                            </fb:FilterItem>
+
+                        </fb:filterItems>
+
+                    </fb:FilterBar>
+                    <VBox width="100%">
+                        <Table id="idMesa" popinLayout="GridLarge" backgroundDesign="Transparent" items="{/MesaSet}" selectionChange="handleSelectionChange" fixedLayout="false" width="auto">
+
+
+
+                            <columns>
+                                <Column width="3em">
+                                    <Text text=""/>
+                                </Column>
+                                <Column width="12em">
+                                    <Text text="{i18n>columnCodMesa}"/>
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="{i18n>columnFecha}"/>
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="{i18n>columnLlamadoTipo}"/>
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="{i18n>columnDocente}"/>
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+                                    <Text text="{i18n>columnCarrera}"/>
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+                                    <Text text="{i18n>columnMateria}"/>
+                                </Column>
+                                <Column hAlign="End">
+                                    <Text text="Estado de Mesa"/>
+                                </Column>
+                                <Column hAlign="End">
+                                    <Text text=""/>
+                                </Column>
+
+                            </columns>
+                            <items>
+                                <ColumnListItem class="myRowTable" type="Navigation" press="onChangeView" visible="true">
+
+                                    <cells>
+                                        <core:Icon src="sap-icon://study-leave"/>
+                                        <Text text="{CodMesa} "/>
+                                        <Text text="{Fecha}" id="fecha"/>
+                                        <Text text="{LlamadoTipo}"/>
+                                        <Text text="{Docente}"/>
+                                        <Text text="{Carrera}"/>
+                                        <Text text="{Materia}"/>
+                                        <ObjectStatus class="sapUiSmallMarginBottom" text="{i18n>LLamado}"  state="Warning" />
+                                        <Toolbar>
+                                            <Button icon="sap-icon://delete" type="Transparent" press="onPressDelete" ariaLabelledBy="editButtonLabel"/>
+                                            <Button icon="sap-icon://edit" type="Transparent" press="onEdit" ariaLabelledBy="editButtonLabel"/>
+                                            <Button type="Ghost" press="onPressAdd" ariaLabelledBy="editButtonLabel" text="Inscribir"/>
+                                        </Toolbar>
+
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+
+                    </VBox>
+                </content>
+
+            </Page>
+        </pages>
+    </App>
+
+</mvc:View>

@@ -1,0 +1,66 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core= "sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form">
+
+    <Dialog >
+
+       <f:SimpleForm id="idEstudiantesModel"
+            
+			editable="true"
+			layout="ResponsiveGridLayout"
+			title="Información de Estudiante"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+            
+			
+            
+            <f:content >
+            <Label text="{i18n>ApellidoEstudiante}" design="Bold" />
+                <Text text="{EstudiantesModel>/ApellidoEstudiante} "/>
+                <Label text="{i18n>NombreEstudiante}" design="Bold" />
+                <Text text="{EstudiantesModel>/NombreEstudiante}"/>
+                <Label text="{i18n>Dni}" design="Bold" />
+                <Text text="{EstudiantesModel>/DniEstudiante}"/>
+				<Label text="{i18n>Telefono}" design="Bold" />
+				<Text text="{EstudiantesModel>/Telefono}"/>
+
+				
+                <Button type="Default" press="closeFragment" text="cancel"/>
+
+            </f:content>
+                
+			
+            
+		</f:SimpleForm>
+	
+
+                           
+         <!-- <List id="idEstudiantesModel" headerText="Estudiantes" items="{      path: 'EstudiantesModel>/'     }">
+                    
+                    <Text text="{i18n>ApellidoEstudiante}:  {EstudiantesModel>/ApellidoEstudiante}  {  } " />
+                    <Text text="{i18n>NombreEstudiante}:  {EstudiantesModel>/NombreEstudiante}  {  } " />
+                        <Text text="{i18n>Dni}:  {EstudiantesModel>/DniEstudiante}  {  } " />
+                        <Text text="Tel:  {EstudiantesModel>/Telefono}  {  } " />
+                         <Button icon="sap-icon://edit" type="Transparent" press="onEdit" ariaLabelledBy="editButtonLabel"/>
+		
+                        
+                        
+                    </List>  -->
+        
+    </Dialog>
+
+
+
+</core:FragmentDefinition>

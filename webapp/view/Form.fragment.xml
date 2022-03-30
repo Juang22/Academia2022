@@ -1,0 +1,59 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core= "sap.ui.core"
+    xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+
+        <Dialog >
+		<f:SimpleForm id="objectForm"
+            
+			editable="true"
+			layout="ResponsiveGridLayout"
+			title="Crear Mesa de Examen"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+            
+			
+            
+            <f:content >
+                
+				<Label text="Fecha" design="Bold" />
+				<Input   id="Fecha" type="Date"  valueLiveUpdate="true" />
+
+				<Label text="LlamadoTipo" design="Bold"/>
+				<Input  id="LlamadoTipo" type="Number"  valueLiveUpdate="true"   />
+
+				<Label text="Docente" design="Bold" />
+				<Input id="Docente"  valueLiveUpdate="true"  />
+
+                <Label text="Carrera" design="Bold" />
+				<Input  id="Carrera" valueLiveUpdate="true" />
+
+                <Label text="Materia" design="Bold" />
+				<Input  id="Materia"  valueLiveUpdate="true" />
+                
+                
+                <Button type="Accept" text="ok" press="sendForm"/>
+                <Button type="Default" press="closeFragment" text="cancel"/>
+
+            </f:content>
+                
+			
+            
+		</f:SimpleForm>
+	</Dialog>
+
+
+
+</core:FragmentDefinition>

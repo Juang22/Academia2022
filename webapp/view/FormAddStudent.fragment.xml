@@ -1,0 +1,57 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core= "sap.ui.core"
+    xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+
+        <Dialog >
+		<f:SimpleForm id="objectForm"
+            
+			editable="true"
+			layout="ResponsiveGridLayout"
+			title="Nuevo Estudiante"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+            
+			
+            
+            <f:content >
+                
+				<Label text="DNI" design="Bold" />
+				<Input  id="Dni" />
+
+				<Label text="Nombre" design="Bold"/>
+				<Input  id="Nombre" type="Text" />
+
+				<Label text="Apellido" design="Bold" />
+				<Input  id="Apellido" type="Text" />
+
+                <Label text="Telefono" design="Bold" />
+				<Input  id="Telefono" type="Text"/>
+
+               
+                
+                <Button type="Accept" text="ok" press="sendFormStudent"/>
+                <Button type="Default" press="closeFragment" text="cancel"/>
+
+            </f:content>
+                
+			
+            
+		</f:SimpleForm>
+	</Dialog>
+
+
+
+</core:FragmentDefinition>

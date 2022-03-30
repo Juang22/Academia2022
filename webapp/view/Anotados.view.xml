@@ -1,0 +1,78 @@
+<mvc:View controllerName="academia2022.zlucc3mesas.controller.Anotados"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:core="sap.ui.core"
+    xmlns:Button="sap.m.Button"
+    xmlns:Table="sap.m.Table"
+    xmlns="sap.m"
+    xmlns:m="sap.suite.ui.microchart">
+
+    <App id="app">
+        <pages>
+            <Page id="page" title="{i18n>title}">
+
+                <content  >
+
+                    <VBox >
+                        <Table id="idAnotadosTable" popinLayout="GridLarge" inset="false" items="{ModeloAnotados>/}" >
+                            <headerToolbar>
+
+                                <OverflowToolbar>
+
+                                    <content  >
+                                        <Button type="Back" press="previousPage" />
+                                        
+                                        <Title text="{i18n>anotados}" level="H2"/>
+                                        <ToolbarSpacer />
+                                    </content>
+                                </OverflowToolbar>
+                            </headerToolbar>
+
+                            <columns>
+                                 <Column width="12em">
+                                    <Text text="{i18n>columnCodMesa}" />
+                                </Column>
+                                 <Column width="12em">
+                                    <Text text="{i18n>columnFecha}" />
+                                </Column>
+                                 <Column width="12em">
+                                    <Text text="{i18n>IdEstudiante}" />
+                                </Column>
+                                <Column width="12em">
+                                    <Text text="{i18n>DniEstudiante}" />
+                                </Column>
+                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                    <Text text="{i18n>TipoEstudiante}" />
+                                </Column>
+                                <Column minScreenWidth="Desktop" demandPopin="true" hAlign="End">
+                                    <Text text="{i18n>AnioCurso}" />
+                                </Column>
+                                <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+                                    <Text text="" />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem vAlign="Top" id="tableE" class="sapUiSmallMarginBottom" >
+                                    <cells >
+                                        <Text text="{ModeloAnotados>CodMesa}"  visible="true" />
+                                        <Text text="{ModeloAnotados>Fecha}"  visible="true" />
+                                        <Text text="{ModeloAnotados>IdEstudiante}"  visible="true" />
+                                        <Text text="{ModeloAnotados>DniEstudiante}"  visible="true" />
+                                        <Text text="{ModeloAnotados>TipoEstudiante}"  />
+                                        <Text text="{ModeloAnotados>AnioCurso}" />
+                                        
+                                        <Toolbar >
+                                            <Button icon="sap-icon://delete" type="Transparent" press="onPressDelete" ariaLabelledBy="editButtonLabel"/>
+                                            <Button icon="sap-icon://information" type="Transparent" press="onInformation" ariaLabelledBy="editButtonLabel"/>
+                                        </Toolbar>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+
+                    </VBox>
+                </content>
+            </Page>
+        </pages>
+    </App>
+
+</mvc:View>

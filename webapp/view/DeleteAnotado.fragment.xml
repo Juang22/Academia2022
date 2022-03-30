@@ -1,0 +1,19 @@
+<core:FragmentDefinition xmlns="sap.m"
+	controllerName="sap.m.sample.Avatar.controller.Avatar"
+    xmlns:core="sap.ui.core">
+         <Toolbar id="myAllTable" design="Transparent">
+
+                        <ToolbarSpacer/>
+                        <Title text="{i18n>StudentList}" level="H2"/>
+                        <ToolbarSpacer/>
+
+                    </Toolbar>
+                        
+                    <List id="idEstudianteTable" headerText="Estudiantes" items="{      path: 'ModeloEstudiante>/'     }">
+                    <InputListItem label="{ModeloEstudiante>DniEstudiante} {ModeloEstudiante>AnioCurso}" >
+                         <Button icon="sap-icon://edit" type="Transparent" press="onEdit" ariaLabelledBy="editButtonLabel"/>
+		</InputListItem>
+                        
+                        
+                    </List>
+</core:FragmentDefinition>

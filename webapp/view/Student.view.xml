@@ -1,0 +1,36 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:Button="sap.m.Button" xmlns:card="sap.f.cards" xmlns="sap.m" xmlns:f="sap.f" controllerName="academia2022.zlucc3mesas.controller.Student" displayBlock="true">
+
+    <App id="app">
+        <pages>
+            <Page id="page" title="{i18n>Student}" >
+                <Button type="Back" press="previousPage"/>
+
+                <content>
+
+                    <Toolbar id="myAllTable" design="Transparent">
+
+                        <ToolbarSpacer/>
+                        <Title text="{i18n>StudentList}" level="H2"/>
+                        <ToolbarSpacer/>
+
+                    </Toolbar>
+                        <!-- {i18n>Dni}: {ModeloEstudiante>DniEstudiante}, Tel: {ModeloEstudiante>Telefono} -->
+                    <List id="idEstudianteTable" headerText="Estudiantes" items="{      path: 'ModeloEstudiante>/'     }">
+                    <InputListItem label="{ModeloEstudiante>ApellidoEstudiante}  {ModeloEstudiante>NombreEstudiante}" >
+                        <Text text="{i18n>Dni}:  {ModeloEstudiante>DniEstudiante}  {  } "  />
+                        <Text text="Tel:  {ModeloEstudiante>Telefono}  {  } "  />
+                        
+		</InputListItem>
+                        
+                        
+                    </List>
+
+                </content>
+            <headerContent>
+                <Button xmlns="sap.m" text="Agregar Estudiante" press="onAddEstudent"/>
+            </headerContent>
+            </Page>
+        </pages>
+    </App>
+
+</mvc:View>

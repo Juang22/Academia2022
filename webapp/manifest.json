@@ -1,0 +1,172 @@
+{
+    "_version": "1.28.0",
+    "sap.app": {
+        "id": "academia2022.zlucc3mesas",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "dataSources": {
+            "mainService": {
+                "uri": "/sap/opu/odata/sap/ZOS_ACADEMIA_JUAR2_MESAS_SRV_01/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "academia2022.zluuc3mesas-inbound": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "Mesa",
+                    "action": "Display",
+                    "title": "Mesas de Examen",
+                    "subTitle": "Gestion de Mesas de Examen",
+                    "icon": "sap-icon://education"
+                }
+            }
+        }
+    },
+
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": false,
+        "dependencies": {
+            "minUI5Version": "1.84.1",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.f": {},
+                "sap.suite.ui.generic.template": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.ui.table": {},
+                "sap.ushell": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "academia2022.zlucc3mesas.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "disableHeadRequestForToken": true,
+                    "useBatch": false
+                }
+
+            },
+            "pagesForm":{
+                "type": "sap.ui.model.json.JSONModel",
+                "uri": "model/form.jason"
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "academia2022.zlucc3mesas.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "RouteMesas",
+                    "pattern": "RouteMesas",
+                    "target": [
+                        "TargetMesas"
+                    ]
+                },
+                {
+                    "name": "anotados",
+                    "pattern": "AnotadosSet/{CodMesa},{Fecha}",
+                    "target": [
+                        "TargetAnotados"
+                    ]
+                },
+                {
+                    "name": "estudentview",
+                    "pattern": "EstudianteSet",
+                    "target": [
+                        "TargetStudentview"
+                    ]
+                    
+                }
+            ],
+            "targets": {
+                "TargetMesas": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewName": "Mesas"
+                },
+                "TargetAnotados": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "viewName": "Anotados"
+                },
+                "TargetStudentview": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "viewName": "Student"
+                   
+                }
+                
+                
+
+            }
+        },
+        "rootView": {
+            "viewName": "academia2022.zlucc3mesas.view.Mesas",
+            "type": "XML",
+            "async": true,
+            "id": "Mesas"
+        }
+    },
+    "sap.cloud": {
+        "public": true,
+        "service": "academia2022-zlucc3mesas"
+    }
+}

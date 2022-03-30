@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZOS_ACADEMIA_JUAR2_MESAS_SRV" xml:lang="es" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="Mesa" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CodMesa"/>
+                    <PropertyRef Name="Fecha"/>
+                </Key>
+                <Property Name="CodMesa" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="CODMESA" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Fecha" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Fecha" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DescLlamado" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Tipo de Llamado" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LlamadoTipo" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="llamado de mesa" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Docente" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Nombre del Docente" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Carrera" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Nombre de la Carrera" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Materia" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Nombre de La Materia" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="AnotadosSet" Relationship="ZOS_ACADEMIA_JUAR2_MESAS_SRV.MesaToAnotados" FromRole="FromRole_MesaToAnotados" ToRole="ToRole_MesaToAnotados"/>
+            </EntityType>
+            <EntityType Name="Anotados" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CodMesa"/>
+                    <PropertyRef Name="Fecha"/>
+                    <PropertyRef Name="DniEstudiante"/>
+                    <PropertyRef Name="IdEstudiante"/>
+                </Key>
+                <Property Name="CodMesa" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="CODMESA" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Fecha" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Fecha" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DniEstudiante" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="DNI Estudiante" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IdEstudiante" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="id_estudiante" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DescTipoEstudiante" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Desc_cursada" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TipoEstudiante" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="tipo_cursada" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AnioCurso" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Anio del curso de la materia" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="Estudiante" Relationship="ZOS_ACADEMIA_JUAR2_MESAS_SRV.EstudianteToAnotados" FromRole="ToRole_EstudianteToAnotados" ToRole="FromRole_EstudianteToAnotados"/>
+                <NavigationProperty Name="Mesa" Relationship="ZOS_ACADEMIA_JUAR2_MESAS_SRV.MesaToAnotados" FromRole="ToRole_MesaToAnotados" ToRole="FromRole_MesaToAnotados"/>
+            </EntityType>
+            <EntityType Name="Estudiante" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="DniEstudiante"/>
+                </Key>
+                <Property Name="DniEstudiante" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="DNI Estudiante" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NombreEstudiante" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Nombre usuario" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ApellidoEstudiante" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Apellido Estudiante" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Telefono" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Tel. (privado)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="AnotadosSet" Relationship="ZOS_ACADEMIA_JUAR2_MESAS_SRV.EstudianteToAnotados" FromRole="FromRole_EstudianteToAnotados" ToRole="ToRole_EstudianteToAnotados"/>
+            </EntityType>
+            <Association Name="EstudianteToAnotados" sap:content-version="1">
+                <End Type="ZOS_ACADEMIA_JUAR2_MESAS_SRV.Estudiante" Multiplicity="1" Role="FromRole_EstudianteToAnotados"/>
+                <End Type="ZOS_ACADEMIA_JUAR2_MESAS_SRV.Anotados" Multiplicity="*" Role="ToRole_EstudianteToAnotados"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_EstudianteToAnotados">
+                        <PropertyRef Name="DniEstudiante"/>
+                    </Principal>
+                    <Dependent Role="ToRole_EstudianteToAnotados">
+                        <PropertyRef Name="DniEstudiante"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="MesaToAnotados" sap:content-version="1">
+                <End Type="ZOS_ACADEMIA_JUAR2_MESAS_SRV.Mesa" Multiplicity="1" Role="FromRole_MesaToAnotados"/>
+                <End Type="ZOS_ACADEMIA_JUAR2_MESAS_SRV.Anotados" Multiplicity="*" Role="ToRole_MesaToAnotados"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_MesaToAnotados">
+                        <PropertyRef Name="Fecha"/>
+                        <PropertyRef Name="CodMesa"/>
+                    </Principal>
+                    <Dependent Role="ToRole_MesaToAnotados">
+                        <PropertyRef Name="Fecha"/>
+                        <PropertyRef Name="CodMesa"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZOS_ACADEMIA_JUAR2_MESAS_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="MesaSet" EntityType="ZOS_ACADEMIA_JUAR2_MESAS_SRV.Mesa" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="AnotadosSet" EntityType="ZOS_ACADEMIA_JUAR2_MESAS_SRV.Anotados" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="EstudianteSet" EntityType="ZOS_ACADEMIA_JUAR2_MESAS_SRV.Estudiante" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="MesaToAnotadosSet" Association="ZOS_ACADEMIA_JUAR2_MESAS_SRV.MesaToAnotados" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="MesaSet" Role="FromRole_MesaToAnotados"/>
+                    <End EntitySet="AnotadosSet" Role="ToRole_MesaToAnotados"/>
+                </AssociationSet>
+                <AssociationSet Name="EstudianteToAnotadosSet" Association="ZOS_ACADEMIA_JUAR2_MESAS_SRV.EstudianteToAnotados" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="EstudianteSet" Role="FromRole_EstudianteToAnotados"/>
+                    <End EntitySet="AnotadosSet" Role="ToRole_EstudianteToAnotados"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link rel="self" href="http://stks4hpil.eastus2.cloudapp.azure.com:8002/sap/opu/odata/sap/ZOS_ACADEMIA_JUAR2_MESAS_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://stks4hpil.eastus2.cloudapp.azure.com:8002/sap/opu/odata/sap/ZOS_ACADEMIA_JUAR2_MESAS_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
